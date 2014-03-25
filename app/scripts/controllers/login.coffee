@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('projectsApp')
-  .controller 'LoginCtrl', ($scope, Auth, $location) ->
+  .controller 'LoginCtrl', ($scope, Auth, $location, $window) ->
     $scope.user = {}
     $scope.errors = {}
 
@@ -19,3 +19,6 @@ angular.module('projectsApp')
         .catch (err) ->
           err = err.data;
           $scope.errors.other = err.message;
+
+    $scope.loginOauth = (provider) ->
+      $window.location.href = '/auth/' + provider;
