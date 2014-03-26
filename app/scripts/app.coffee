@@ -1,9 +1,9 @@
 'use strict'
 
 angular.module('projectsApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
+  'ngCookies'
+  'ngResource'
+  'ngSanitize'
   'ngRoute'
 ])
   .config ($routeProvider, $locationProvider, $httpProvider) ->
@@ -11,7 +11,6 @@ angular.module('projectsApp', [
       .when '/',
         templateUrl: 'partials/main'
         controller: 'MainCtrl'
-      
       .when '/login',
         templateUrl: 'partials/login'
         controller: 'LoginCtrl'
@@ -28,16 +27,18 @@ angular.module('projectsApp', [
     $locationProvider.html5Mode true
   
     # Intercept 401s and redirect you to login
-    $httpProvider.interceptors.push ['$q', '$location', ($q, $location) ->
-      responseError: (response) ->
-        if response.status is 401
-          $location.path '/login'
-          $q.reject response
-        else
-          $q.reject response
+    $httpProvider.interceptors.push [
+      '$q'
+      '$location'
+      ($q, $location) ->
+        responseError: (response) ->
+          if response.status is 401
+            $location.path '/login'
+            $q.reject response
+          else
+            $q.reject response
     ]
   .run ($rootScope, $location, Auth) ->
-    
     # Redirect to login if route requires auth and you're not logged in
     $rootScope.$on '$routeChangeStart', (event, next) ->
       $location.path '/login'  if next.authenticate and not Auth.isLoggedIn()

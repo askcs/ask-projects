@@ -26,12 +26,16 @@ br
 
 .row
   .col-sm-12
-    //a(href="", data-ng-click="loginOauth('facebook')")
-    //  | Login with Facebook
-    //a(href="", data-ng-click="loginOauth('twitter')")
-    //  | Login with Twitter
-    a(href="", data-ng-click="loginOauth('google')")
-      | Login with Google
+    ul.list-inline
+      li
+        a(href="", data-ng-click="loginOauth('facebook')")
+          | Login with Facebook
+      li
+        a(href="", data-ng-click="loginOauth('twitter')")
+          | Login with Twitter
+      li
+        a(href="", data-ng-click="loginOauth('google')")
+          | Login with Google
 
 .row
   .col-sm-12
