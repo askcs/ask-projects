@@ -1,16 +1,23 @@
-"use strict"
+'use strict'
 
-angular.module("projectsApp")
-  .factory "User", ($resource) ->
-    $resource "/api/users/:id",
-      id: "@id"
+angular.module('projectsApp')
+  .factory 'User', ($resource) ->
+    $resource '/api/:level/:id',
+      id: '@id'
     ,
       update:
-        method: "PUT"
-        params: {}
+        method: 'PUT'
+        params:
+          level: 'users'
 
       get:
-        method: "GET"
+        method: 'GET'
         params:
-          id: "me"
+          level: 'users'
+          id: ''
 
+      profile:
+        method: 'GET'
+        params:
+          level: 'profile'
+          id: '' 

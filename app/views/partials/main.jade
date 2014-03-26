@@ -8,3 +8,10 @@ div(ng-include='\'partials/navbar\'')
       | {{ currentUser.name }}
       | !
   p {{currentUser}}
+
+  div(ng-show='currentUser')
+    button(class='btn btn-primary',
+    ng-click='getUserInfo()') Get User Info
+    hr
+    p
+      pre User information: {{UserInfo}}

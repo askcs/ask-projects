@@ -10,4 +10,3 @@ angular.module('projectsApp')
     link: (scope, element, attrs, ngModel) ->
       element.on 'keydown', ->
         ngModel.$setValidity 'mongoose', true
-  
