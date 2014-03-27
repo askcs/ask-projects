@@ -15,7 +15,8 @@
     "passport-twitter": "latest",
     "passport-google-oauth": "latest",
     "bcrypt": "~0.7.7",
-    "jade": "latest"
+    "jade": "latest",
+    "passport-github": "^0.1.5"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
